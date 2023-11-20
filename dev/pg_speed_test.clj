@@ -39,3 +39,6 @@ str varchar(32));"])
 (time (jdbc/execute! conn ["SELECT docs.int, docs.long, docs.str FROM docs ORDER BY docs.int LIMIT 10"]))
 (time (jdbc/execute! conn ["SELECT docs.int, docs.long, docs.str FROM docs ORDER BY docs.long LIMIT 10"]))
 (time (jdbc/execute! conn ["SELECT docs.int, docs.long, docs.str FROM docs ORDER BY docs.str LIMIT 10"]))
+
+(time (jdbc/execute! conn ["EXPLAIN ANALYZE SELECT docs.int, docs.long, docs.str FROM docs ORDER BY docs.int LIMIT 10"]))
+(time (jdbc/execute! conn ["EXPLAIN ANALYZE SELECT docs.int, docs.long, docs.str FROM docs ORDER BY docs.int LIMIT 14000"]))
